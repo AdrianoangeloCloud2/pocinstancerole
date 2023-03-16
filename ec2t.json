@@ -1,0 +1,22 @@
+{
+    "Resources": {
+        "ImportedKeyPair": {
+            "Type": "AWS::EC2::KeyPair",
+            "Properties": {
+                "KeyName": "Instance",
+                "PublicKeyMaterial": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCUvGW9RqnAP+M0w5EIhGFtNd0GU+7B9fsUtpg14XGN4IYiGB6VjY2FUkf1h5/HwapaR4KTGyahG4xizaNJ6OAACgFlR9MzFr2FLR5WCnvf3GyDE15MDkRhWRsN5jjplcdWPMTZTRhZEoDLQ/CJVLLZ4Uvpa35CafsgHAjoUBJVZ5pZn++XoVpm6m3x/a8jQzjX8EAEBZsFY9s1dFDhwV4tKNAvGHvgnNNJukGStMqScJaPOP4LkRr7w+uxkbW/7YLE5IJqckd4xNFza1u40nh7HP3mv41brPW50ezR8huDgCtmi1xH5DP6ifKuxxNUU2Rev8NW7uVBUwQP4aafUKqL Instance"
+            }
+        },
+        "Ec2Instance": {
+            "Type": "AWS::EC2::Instance",
+            "Properties": {
+                "ImageId": "ami-005f9685cb30f234b",
+                "InstanceType": "t2.micro",
+                "AvailabilityZone": "us-east-1a",
+                "KeyName": {
+                    "Ref": "ImportedKeyPair"
+                }
+            }
+        }
+    }
+}
